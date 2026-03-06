@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful and intuitive modern weather application.">
+    <title>Aura Weather</title>
+
+    <!-- Google Fonts: Inter and Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Phosphor Icons for modern premium icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Dynamic Background generated via CSS / Image -->
+        <div class="hero-image-overlay"></div>
+
+        <main class="main-content">
+            <header class="hero-section">
+                <h1 class="brand-title">Aura</h1>
+                <p class="brand-subtitle">Discover the atmosphere anywhere.</p>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="ph ph-magnifying-glass search-icon"></i>
+                        <input type="text" id="citySearch" placeholder="Search for a city..." autocomplete="off">
+                        <button id="searchBtn" aria-label="Search"><i class="ph ph-arrow-right"></i></button>
+                    </div>
+                    <ul id="suggestions" class="suggestions-list hidden"></ul>
+                </div>
+            </header>
+
+            <section id="weatherResults" class="weather-results hidden">
+                <div class="glass-panel current-weather">
+                    <div class="weather-header">
+                        <div>
+                            <h2 id="cityName" class="city-name">--</h2>
+                            <p id="currentDate" class="current-date">--</p>
+                        </div>
+                        <div class="weather-icon-large">
+                            <i id="currentIcon" class="ph-fill ph-cloud-sun"></i>
+                        </div>
+                    </div>
+
+                    <div class="temperature-display">
+                        <span id="currentTemp" class="temp-huge">--</span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <p id="weatherDesc" class="weather-desc">--</p>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="ph ph-drop"></i>
+                            <div>
+                                <span class="detail-label">Humidity</span>
+                                <span id="humidityVal" class="detail-value">--%</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="ph ph-wind"></i>
+                            <div>
+                                <span class="detail-label">Wind</span>
+                                <span id="windVal" class="detail-value">-- km/h</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="ph ph-thermometer"></i>
+                            <div>
+                                <span class="detail-label">Feels Like</span>
+                                <span id="feelsLikeVal" class="detail-value">--°C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast-column">
+                    <!-- Hourly Forecast -->
+                    <div class="glass-panel forecast-panel">
+                        <h3>Today</h3>
+                        <div id="hourlyForecast" class="hourly-list">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Daily Forecast -->
+                    <div class="glass-panel forecast-panel">
+                        <h3>7-Day Forecast</h3>
+                        <div id="dailyForecast" class="forecast-list">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="errorMessage" class="error-message hidden">
+                <i class="ph ph-warning-circle"></i>
+                <p id="errorText">City not found. Please try again.</p>
+            </div>
+
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
